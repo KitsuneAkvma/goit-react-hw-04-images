@@ -1,22 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import StyledGalleryItem from './ImageGalleryItem.styled';
 
-export default class ImageGalleryItem extends Component {
-  render() {
-    return (
-      <StyledGalleryItem>
-        <img
-          src={this.props.thumbnail}
-          alt={this.props.tags}
-          onClick={this.props.onImageClick}
-          data-fullsizeimage={this.props.fullSizeImage}
-        />
-      </StyledGalleryItem>
-    );
-  }
-}
+export const ImageGalleryItem = props => {
+  const { thumbnail, tags, onImageClick, fullSizeImage } = props;
+  return (
+    <StyledGalleryItem>
+      <img src={thumbnail} alt={tags} onClick={onImageClick} data-fullsizeimage={fullSizeImage} />
+    </StyledGalleryItem>
+  );
+};
 
 ImageGalleryItem.propTypes = {
   thumbnail: PropTypes.string,
